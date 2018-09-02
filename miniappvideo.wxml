@@ -1,0 +1,47 @@
+<!--pages/xxxxxx.wxml-->
+<view class="page">
+  <component-menubar title="xxx" showback="{{showback}}" backpage="xxxxx"></component-menubar>
+  <view class="main-content__container" style="background:#EFEFF4;padding-bottom:50px;">
+    <view class="head">
+      <view class="logo">
+        <image lazy-load="true" src="{{xxx.logo}}" style="width:107px;margin-top:18px;height:auto;" mode="widthFix"></image>
+      </view>
+
+      <view class="info">
+        <view class="title">{{xxx.name}}</view>
+        <view class="other">
+          <text>{{xxx.business_model}}</text>
+          <text style="margin-left:25px;">{{startupsinfo.current_round}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="tags" wx:if="{{xxx.tagList}}">
+      <view class="tag" wx:for="{{xxx.tagList}}" wx:key="tidx">{{item}}</view>
+    </view>
+    <view class="description">
+      {{xxx.description}}
+    </view>
+
+    <view class="video" wx:if="{{xxx.video_url}}" data-id="{{xxx.id}}" bindtap="videoPlay" >
+      <video wx:if="{{curr_id == xxx.id}}" style="width: 750rpx;height: calc(9 * 750rpx / 16);" id="myVideo" src="{{startupsinfo.video_url}}" poster="{{startupsinfo.video_poster}}" objectFit="cover" controls>
+      </video>
+      <view style="position:relative;" wx:else>
+        <image class="model-img" style="width: 750rpx;height: calc(9 * 750rpx / 16);" mode="aspectFill" src="{{startupsinfo.video_poster}}"></image>
+        <view class="model-btn" style="position:absolute;top:calc(9 * 750rpx / 48);left:320rpx;">
+          <image src="/images/player.png" style="width:128rpx;" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="desc" style="margin-top:5px;">
+      <view class="desc-title">产品介绍</view>
+      <view class="desc-content">
+        {{startupsinfo.product_description}}
+      </view>
+    </view>
+  </view>
+  <view class="bottom-btn" open-type='getUserInfo' bindtap='getContact' style="{{canGetContactStyle}}">
+    {{contactBtnText}}
+  </view>
+  <component-backhome></component-backhome>
+</view>
