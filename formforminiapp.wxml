@@ -1,0 +1,88 @@
+<!--pages/contacform/contactform.wxml-->
+<view class="page">
+  <component-menubar title="申请表单" showback="1" backpage="/xxxxxxxxx?id={{connectstartupid}}"></component-menubar>
+
+  <view class="contactform" style="overflow:hidden;">
+    <view style="margin-top:20px; text-align:center;margin-bottom:43px;">
+      <image src='/images/formlogo@2x.png' style="width:100px;" mode='widthFix'></image>
+    </view>
+
+    <view class="form">
+      <form bindsubmit='formSubmit' report-submit="true">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <view class="weui-label" hidden="{{usernameFocused}}">姓名
+                <text class="important">*</text>
+              </view>
+              <input class="weui-input" name="username" data-name='username' bindfocus='focusCtrl' bindblur='blurCtrl'/>
+
+              <view class="error" hidden="{{usernameWithoutError}}">
+                <text>{{usernameErrorMsg}} </text>
+                <view class="icon-error">!</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title margintop20">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <view class="weui-label" hidden="{{companyFocused}}">公司</view>
+              <input class="weui-input" name="company" data-name='company' bindfocus='focusCtrl' bindblur='blurCtrl'/>
+              <view class="error" hidden="{{companyWithoutError}}">
+                <text>{{companyErrorMsg}}</text>
+                <view class="icon-error">!</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        
+        <view class="weui-cells weui-cells_after-title margintop20">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <view class="weui-label" hidden='{{mobileFocused}}'>电话
+                <text class="important">*</text>
+              </view>
+              <input class="weui-input" type="number"  name="mobile" data-name='mobile' bindfocus='focusCtrl' bindblur='blurCtrl'/>
+
+              <view class="error" hidden="{{mobileWithoutError}}">
+                <text>{{mobileErrorMsg}}</text>
+                <view class="icon-error">!</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-cells weui-cells_after-title margintop20">
+          <view class="weui-cell weui-cell_input" style="height:auto;">
+            <view class="weui-cell__bd">
+              <view class="weui-label" style="top:8px;" hidden='{{demandFocused}}'>需求描述
+                <text class="important">*</text>
+              </view>
+              <textarea class="weui-textarea" style="height: 100px;padding-top:20px;"  name="demand" data-name='demand' bindfocus='focusCtrl' bindblur='blurCtrl'/>
+
+              <view class="error" hidden="{{demandWithoutError}}">
+                <text>{{demandErrorMsg}}</text>
+                <view class="icon-error">!</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <button formType='submit' class="margintop20 submit">申请</button>
+      </form>
+    </view>
+  </view>
+  
+  <view class="oktoast"  hidden='{{toastClose}}'>
+    <view class="toastimg">
+      <image src="/images/open@2x.png"></image>
+    </view>
+    <view>
+      <image src="/images/close@2x.png" style="width:40px;" mode="widthFix" bindtap='closeForm'></image>
+    </view>
+  </view>
+
+  <view class="overlay" hidden='{{overlayClose}}' bindtap='closeForm'> </view>
+</view>
