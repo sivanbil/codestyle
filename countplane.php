@@ -1,9 +1,9 @@
 <?php
 // interval序列
 $plane_time_list = [[1, 10], [2, 3], [4, 6], [5, 9],[4, 4]];
-echo compute_plane_nums_meanwhile($plane_time_list, false);
+echo compute_plane_nums_meanwhile($plane_time_list, TRUE);
 
-function compute_plane_nums_meanwhile($plane_time_list = [])
+function compute_plane_nums_meanwhile($plane_time_list = [], $is_off_first=TRUE)
 {
     if(!is_array($plane_time_list) || !$plane_time_list) {
         return 0;
