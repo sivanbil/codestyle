@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Plan\PlanRouter;
-use App\Http\Controllers\Course\CourseRouter;
-use App\Http\Controllers\Material\MaterialRouter;
-use App\Http\Controllers\Script\ScriptRouter;
+use App\Http\Controllers\x\xRouter;
+use App\Http\Controllers\xx\xxxRouter;
+use App\Http\Controllers\xxx\xxxRouter;
+use App\Http\Controllers\xxxx\xxxxRouter;
 
 class Router
 {
@@ -16,10 +16,10 @@ class Router
      * @var array
      */
     protected static $_router_instance = [
-        PlanRouter::class,
-        MaterialRouter::class,
-        CourseRouter::class,
-        ScriptRouter::class,
+        xRouter::class,
+        xxxRouter::class,
+        xxxRouter::class,
+        xxxxRouter::class,
     ];
 
     protected static function registerRouter()
